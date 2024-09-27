@@ -6,7 +6,9 @@ const {
 } = require("./LibraryError");
 
 class Library {
-  // ...existing methods remain unchanged...
+  constructor() {
+    this.books = new Map(); // Ensure books is initialized here
+  }
 
   addBook(book) {
     if (!this.books.has(book.isbn)) {
@@ -40,6 +42,14 @@ class Library {
     } else {
       throw new BookNotFoundError();
     }
+  }
+
+  viewAvailableBooks() {
+    return Array.from(this.books.values()).filter((book) => !book.isBorrowed);
+  }
+  // Add this method to the Library class
+  viewAllBooks() {
+    return Array.from(this.books.values());
   }
 }
 
