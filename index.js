@@ -20,3 +20,17 @@ console.log(
   'Search results for "effective":',
   searchResults.map((book) => book.toString())
 );
+
+// Removing a book
+try {
+  library.removeBook("456");
+  console.log("Book with ISBN 456 has been removed.");
+} catch (error) {
+  console.error(error.message);
+}
+
+// Final available books after removal
+console.log(
+  "Available books after removal:",
+  library.viewAvailableBooks().map((book) => book.toString())
+);
