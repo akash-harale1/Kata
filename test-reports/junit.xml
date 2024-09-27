@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="2" failures="0" errors="0" time="0.68">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2024-09-27T03:16:42" time="0.487" tests="2">
-    <testcase classname=" creates a book with correct details" name=" creates a book with correct details" time="0.003">
+<testsuites name="jest tests" tests="8" failures="0" errors="0" time="0.851">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2024-09-27T03:19:14" time="0.64" tests="6">
+    <testcase classname=" add a book to the library" name=" add a book to the library" time="0.004">
+    </testcase>
+    <testcase classname=" add duplicate book" name=" add duplicate book" time="0.01">
+    </testcase>
+    <testcase classname=" borrow a book" name=" borrow a book" time="0.001">
+    </testcase>
+    <testcase classname=" borrow an already borrowed book" name=" borrow an already borrowed book" time="0.001">
+    </testcase>
+    <testcase classname=" return a borrowed book" name=" return a borrowed book" time="0">
+    </testcase>
+    <testcase classname=" view available books" name=" view available books" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2024-09-27T03:19:15" time="0.076" tests="2">
+    <testcase classname=" creates a book with correct details" name=" creates a book with correct details" time="0">
     </testcase>
     <testcase classname=" borrows and returns a book" name=" borrows and returns a book" time="0.001">
     </testcase>
