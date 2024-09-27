@@ -88,3 +88,16 @@ test("search for non-existent books", () => {
   library.addBook(book1);
   expect(library.searchBooks("JavaScript")).toHaveLength(0);
 });
+
+test("remove a book from the library", () => {
+  const library = new Library();
+  const book = new Book("123", "Effective Java", "Joshua Bloch", 2008);
+  library.addBook(book);
+  library.removeBook("123");
+  expect(library.viewAllBooks()).toHaveLength(0);
+});
+
+test("remove a non-existent book", () => {
+  const library = new Library();
+  expect(() => library.removeBook("999")).toThrow(BookNotFoundError);
+});
