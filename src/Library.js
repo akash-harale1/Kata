@@ -60,6 +60,13 @@ class Library {
         book.author.toLowerCase().includes(lowerCaseQuery)
     );
   }
+  removeBook(isbn) {
+    if (this.books.has(isbn)) {
+      this.books.delete(isbn);
+    } else {
+      throw new BookNotFoundError();
+    }
+  }
 }
 
 module.exports = Library;
