@@ -61,3 +61,30 @@ test("view all books", () => {
   library.addBook(book2);
   expect(library.viewAllBooks()).toHaveLength(2);
 });
+
+test("search for books by title", () => {
+  const library = new Library();
+  const book1 = new Book("123", "Effective Java", "Joshua Bloch", 2008);
+  const book2 = new Book("456", "Clean Code", "Robert Martin", 2009);
+  library.addBook(book1);
+  library.addBook(book2);
+  expect(library.searchBooks("Effective")).toHaveLength(1);
+  expect(library.searchBooks("Clean")).toHaveLength(1);
+});
+
+test("search for books by author", () => {
+  const library = new Library();
+  const book1 = new Book("123", "Effective Java", "Joshua Bloch", 2008);
+  const book2 = new Book("456", "Clean Code", "Robert Martin", 2009);
+  library.addBook(book1);
+  library.addBook(book2);
+  expect(library.searchBooks("Joshua")).toHaveLength(1);
+  expect(library.searchBooks("Robert")).toHaveLength(1);
+});
+
+test("search for non-existent books", () => {
+  const library = new Library();
+  const book1 = new Book("123", "Effective Java", "Joshua Bloch", 2008);
+  library.addBook(book1);
+  expect(library.searchBooks("JavaScript")).toHaveLength(0);
+});
