@@ -47,9 +47,18 @@ class Library {
   viewAvailableBooks() {
     return Array.from(this.books.values()).filter((book) => !book.isBorrowed);
   }
-  // Add this method to the Library class
+
   viewAllBooks() {
     return Array.from(this.books.values());
+  }
+
+  searchBooks(query) {
+    const lowerCaseQuery = query.toLowerCase();
+    return Array.from(this.books.values()).filter(
+      (book) =>
+        book.title.toLowerCase().includes(lowerCaseQuery) ||
+        book.author.toLowerCase().includes(lowerCaseQuery)
+    );
   }
 }
 
