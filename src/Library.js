@@ -1,48 +1,45 @@
-class Library {
-  constructor() {
-    this.books = new Map();
-  }
+const {
+  BookAlreadyExistsError,
+  BookNotFoundError,
+  BookAlreadyBorrowedError,
+  BookNotBorrowedError,
+} = require("./LibraryError");
 
-  // Add a new book to the library
+class Library {
+  // ...existing methods remain unchanged...
+
   addBook(book) {
     if (!this.books.has(book.isbn)) {
       this.books.set(book.isbn, book);
     } else {
-      throw new Error("Book with this ISBN already exists.");
+      throw new BookAlreadyExistsError();
     }
   }
 
-  // Borrow a book from the library
   borrowBook(isbn) {
     if (this.books.has(isbn)) {
       const book = this.books.get(isbn);
       if (!book.isBorrowed) {
         book.borrowBook();
       } else {
-        throw new Error("Book is already borrowed.");
+        throw new BookAlreadyBorrowedError();
       }
     } else {
-      throw new Error("Book not found.");
+      throw new BookNotFoundError();
     }
   }
 
-  // Return a borrowed book
   returnBook(isbn) {
     if (this.books.has(isbn)) {
       const book = this.books.get(isbn);
       if (book.isBorrowed) {
         book.returnBook();
       } else {
-        throw new Error("Book was not borrowed.");
+        throw new BookNotBorrowedError();
       }
     } else {
-      throw new Error("Book not found.");
+      throw new BookNotFoundError();
     }
-  }
-
-  // View all available books
-  viewAvailableBooks() {
-    return Array.from(this.books.values()).filter((book) => !book.isBorrowed);
   }
 }
 
