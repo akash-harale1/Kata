@@ -14,3 +14,9 @@ console.log(
   "All books in the library:",
   library.viewAllBooks().map((book) => book.toString())
 );
+// Searching for books
+const searchResults = library.searchBooks("effective");
+console.log(
+  'Search results for "effective":',
+  searchResults.map((book) => book.toString())
+);
