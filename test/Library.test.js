@@ -52,3 +52,12 @@ test("view available books", () => {
   library.borrowBook("123");
   expect(library.viewAvailableBooks()).toHaveLength(1);
 });
+
+test("view all books", () => {
+  const library = new Library();
+  const book1 = new Book("123", "Effective Java", "Joshua Bloch", 2008);
+  const book2 = new Book("456", "Clean Code", "Robert Martin", 2009);
+  library.addBook(book1);
+  library.addBook(book2);
+  expect(library.viewAllBooks()).toHaveLength(2);
+});
