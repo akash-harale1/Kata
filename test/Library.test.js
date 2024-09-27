@@ -1,5 +1,11 @@
 const Book = require("../src/Book");
 const Library = require("../src/Library");
+const {
+    BookNotFoundError,
+    BookAlreadyExistsError,
+    BookAlreadyBorrowedError,
+    BookNotBorrowedError
+} = require('../src/LibraryError');
 
 test("add a book to the library", () => {
   const library = new Library();
